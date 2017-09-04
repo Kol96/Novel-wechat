@@ -1,0 +1,29 @@
+<div class="chapterIntro">
+    <nav class="novel-nav">
+        <div class="novel-nav__fl"></div>
+        <h3 class="novel-nav__title" ng-bind="vm.bookInfo.title"></h3>
+        <div class="novel-nav__fr">
+            <button type="button" ng-click="vm.chapter()">目录</button>
+        </div>
+    </nav>
+
+    <div class="novel-main" ng-if="!vm.chapterInfo.isVip">
+        <h3 class="novel-main__title" ng-bind="vm.chapterInfo.title"></h3>
+        <article>
+            <p class="novel-main__body" ng-repeat="section in vm.chapterSection track by $index">
+                {{ section}}
+            </p>
+        </article>
+
+        <!--翻页-->
+        <div class="button-sp-area btn__item">
+            <button class="weui-btn weui-btn_plain-default" ng-if="vm.chapterIndex" ng-click="vm.page('prev')">上一章
+            </button>
+            <button class="weui-btn weui-btn_plain-default" ng-if="vm.chapterIndex+1 < vm.chapterTotalIndex"
+                    ng-click="vm.page('next')">下一章
+            </button>
+        </div>
+    </div>
+
+    <div class="novel-main" ng-if="vm.chapterInfo.isVip">VIP专享 试试切换小说源</div>
+</div>

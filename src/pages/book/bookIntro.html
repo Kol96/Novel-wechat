@@ -1,0 +1,50 @@
+<div class="bookIntro" ng-if="vm.bookInfo!=null">
+    <nav class="novel-nav">
+        <div class="novel-nav__fl"></div>
+        <h3 class="novel-nav__title">作品介绍</h3>
+        <div class="novel-nav__fr">
+            <button type="button" ng-click="vm.changeSource()">小说源</button>
+        </div>
+    </nav>
+
+    <div class="novel-main">
+        <div class="weui-cells weui-cells__head">
+            <div class="weui-cell">
+                <img class="weui-cell__img" ng-src="http://statics.zhuishushenqi.com{{vm.bookInfo.cover}}">
+                <div class="weui-flex__item weui-cell__main">
+                    <h3 class="book__title" ng-bind="vm.bookInfo.title">作品名</h3>
+                    <p class="book__author" ng-bind="vm.bookInfo.author">作者</p>
+                    <p class="book__score" ng-bind="vm.bookInfo.rating.score">评分</p>
+                    <p class="book__category" ng-bind="vm.bookInfo.majorCate + ' | ' + vm.bookInfo.minorCate">分类</p>
+                    <p class="book__word" ng-bind="vm.bookInfo.wordCount | wordFilter">字数</p>
+                </div>
+            </div>
+        </div>
+
+        <!--按钮栏-->
+        <div class="button-sp-area btn__item">
+            <button class="weui-btn weui-btn_plain-default" ng-click="vm.read()">开始阅读</button>
+            <button class="weui-btn weui-btn_plain-default" ng-click="vm.addBookshelf()" ng-bind="vm.bookshelfTip">加入书架</button>
+            <button class="weui-btn weui-btn_plain-default" ng-click="vm.push()">一键推送</button>
+        </div>
+
+        <!--章节选择-->
+        <div class="weui-cells weui-cells__item">
+            <a class="weui-cell weui-cell_access" ng-href="#/book/chapter/{{vm.bookSourceId}}">
+                <div class="weui-cell__bd title">
+                    <p>目录</p>
+                </div>
+                <div class="weui-cell__ft next" ng-bind="vm.bookInfo.lastChapter"></div>
+            </a>
+        </div>
+
+        <!--介绍-->
+        <div class="weui-panel">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <p class="weui-panel__intro" ng-bind="vm.bookInfo.longIntro">介绍</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

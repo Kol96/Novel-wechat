@@ -1,0 +1,48 @@
+<div class="profile">
+    <nav class="profile-nav">
+        <h3>个人中心</h3>
+    </nav>
+
+    <div class="weui-cells weui-cells__head">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img class="weui-cell__img" ng-src="{{vm.sessionUser.headimgurl}}">
+            </div>
+            <div class="weui-flex__item weui-cell__main">
+                <p ng-bind="vm.sessionUser.nickname">K.伦</p>
+                <p class="weui-cell__intro">你陪了我多少年,花开花落,一路上起起跌跌</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="weui-cells weui-cells__item">
+        <a class="weui-cell weui-cell_access" href="#/book">
+            <div class="weui-cell__hd">
+                <i class="iconfont icon-bookshelf"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>我的书架</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#/profile/email/kindle">
+            <div class="weui-cell__hd">
+                <i class="iconfont icon-push"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>Kindle推送</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#/profile/email">
+            <div class="weui-cell__hd">
+                <i class="iconfont icon-mail"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>绑定邮箱</p>
+            </div>
+            <div class="weui-cell__ft" ng-bind="vm.sessionUser.email?vm.sessionUser.email:'还未绑定邮箱哟'"></div>
+        </a>
+    </div>
+</div>

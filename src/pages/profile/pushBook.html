@@ -1,0 +1,31 @@
+<div class="pushBook">
+    <div class="novel-nav">
+        <div class="novel-nav__fl" ng-click="back()">返回</div>
+        <div class="novel-nav__title"><h3>Kindle推送</h3></div>
+        <div class="novel-nav__fr">
+            <button ng-disabled="!vm.start || !vm.end || vm.start > vm.end" ng-click="vm.push()">推送</button>
+        </div>
+    </div>
+
+    <div class="novel-main">
+        <div class="weui-cells__title" ng-bind="vm.book.title + ' 最新章节: ' + vm.chapters[vm.chapters.length-1].title"></div>
+        <div class="weui-cells__title" ng-bind="'你可以输入1到'+ vm.chapters.length +'之间的数字'"></div>
+        <div class="weui-cells__title" ng-bind="'小说源: '+ vm.source.name "></div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">开始章节</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入章节" min="1" max="{{vm.chapters.length}}" ng-model="vm.start" required/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">结束章节</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入章节" min="1" max="{{vm.chapters.length}}" ng-model="vm.end" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

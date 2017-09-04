@@ -1,0 +1,17 @@
+<div class="bookshelf">
+    <nav class="bookshelf-nav">
+        <h3>我的书架</h3>
+    </nav>
+    <div class="weui-grids" ng-if="vm.books">
+        <div class="weui-grid bookshelf-item" ng-repeat="(_id ,book) in vm.books" ng-click="vm.bookIntro(_id)">
+            <div class="weui-grid__icon">
+                <img ng-src="http://statics.zhuishushenqi.com{{book.cover}}" >
+            </div>
+            <p class="weui-grid__label" ng-bind="book.title"></p>
+        </div>
+    </div>
+    <div ng-if="!vm.books" class="bookshelf__empty">
+        <p>你的书架空空如也噻</p>
+        <p>快去书城找点吧！</p>
+    </div>
+</div>

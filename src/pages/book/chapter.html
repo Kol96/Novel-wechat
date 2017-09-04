@@ -1,0 +1,25 @@
+<div class="chapter">
+    <nav class="novel-nav">
+        <div class="novel-nav__fl"></div>
+        <h3 class="novel-nav__title">章节选择</h3>
+        <div class="novel-nav__fr">
+            <button type="button" ng-bind="vm.reverse?'升序':'降序'" ng-click="vm.reverseChapter()"></button>
+        </div>
+    </nav>
+    <div class="novel-main">
+        <div class="weui-cells weui-cells__item">
+            <li class="weui-cell weui-cell_access" ng-repeat="chapter in vm.chapters" ng-click="vm.goChapterInfo(chapter.link)">
+                <div class="weui-cell__bd">
+                    <p ng-bind="chapter.title"></p>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </li>
+        </div>
+
+        <!--翻页-->
+        <div class="button-sp-area btn__item">
+            <button class="weui-btn weui-btn_plain-default" ng-if="vm.pageIndex" ng-click="vm.page(vm.pageIndex-1)">上一页</button>
+            <button class="weui-btn weui-btn_plain-default" ng-if="vm.pageIndex!=vm.pageTotalSize" ng-click="vm.page(vm.pageIndex+1)">下一页</button>
+        </div>
+    </div>
+</div>

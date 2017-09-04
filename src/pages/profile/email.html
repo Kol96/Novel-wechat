@@ -1,0 +1,24 @@
+<div class="email">
+    <nav class="novel-nav">
+        <div class="novel-nav__fl">
+            <button ng-click="back()">取消</button>
+        </div>
+        <h3 class="novel-nav__title">修改邮箱</h3>
+        <div class="novel-nav__fr">
+            <button ng-click="vm.save()" ng-disabled="!vm.email || vm.email==vm.sessionUser.email ">
+                保存
+            </button>
+        </div>
+    </nav>
+
+    <div class="novel-main">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">邮箱</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="email" placeholder="请输入邮箱" ng-model="vm.email" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

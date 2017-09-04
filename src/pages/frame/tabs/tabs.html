@@ -1,0 +1,22 @@
+<div class="weui-tab">
+    <ui-view class="weui-tab__panel" name="tab"></ui-view>
+    <div class="weui-tabbar weui-tabbar__fixed">
+        <a href="#/book" class="weui-tabbar__item" ng-class="{'weui-bar__item_on':vm.tab=='book'}" ng-click="vm.tabs('book')">
+            <!--<i class="fa fa-book weui-tabbar__icon"></i>-->
+            <i class="iconfont icon-bookshelf weui-tabbar__icon"></i>
+            <p class="weui-tabbar__label">书架</p>
+        </a>
+        <a href="#/bookstore" class="weui-tabbar__item" ng-class="{'weui-bar__item_on':vm.tab=='bookstore'}" ng-click="vm.tabs('bookstore')">
+            <i class="iconfont icon-book weui-tabbar__icon"></i>
+            <p class="weui-tabbar__label">书城</p>
+        </a>
+        <a href="#/search" class="weui-tabbar__item" ng-class="{'weui-bar__item_on':vm.tab=='search'}" ng-click="vm.tabs('search')">
+            <i class="iconfont icon-search weui-tabbar__icon"></i>
+            <p class="weui-tabbar__label">搜索</p>
+        </a>
+        <a href="#/profile" class="weui-tabbar__item" ng-class="{'weui-bar__item_on':vm.tab=='profile'}" ng-click="vm.tabs('profile')">
+            <i class="iconfont icon-profile weui-tabbar__icon"></i>
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+    </div>
+</div>
