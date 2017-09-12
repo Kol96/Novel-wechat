@@ -1,16 +1,35 @@
 <div class="bookshelf">
-    <nav class="bookshelf-nav">
-        <h3>我的书架</h3>
+    <nav class="novel-nav">
+        <div class="novel-nav__fl"></div>
+        <h3 class="novel-nav__title">我的书架</h3>
+        <div class="novel-nav__fr"></div>
     </nav>
-    <div class="weui-grids" ng-if="vm.books">
-        <div class="weui-grid bookshelf-item" ng-repeat="(_id ,book) in vm.books" ng-click="vm.bookIntro(_id)">
-            <div class="weui-grid__icon">
-                <img ng-src="http://statics.zhuishushenqi.com{{book.cover}}" >
+    <div class="novel-main" ng-if="vm.books">
+        <div class="bookshelf-item" ng-repeat="(_id ,book) in vm.books">
+            <div class="bookshelf-item__main" ng-click="vm.bookIntro(_id)" swipe>
+                <img ng-src="https://statics.zhuishushenqi.com{{book.cover}}">
+                <div class="bookshelf-item__intro">
+                    <h3>
+                        <span ng-bind="book.title" class="bookshelf-item__title"></span>
+                        <span ng-bind="book.author" class="bookshelf-item__author"></span>
+                    </h3>
+                    <p ng-bind="'最新章节: '+ book.lastChapter"></p>
+                    <p ng-bind="book.updated | timeFilter"></p>
+                </div>
             </div>
-            <p class="weui-grid__label" ng-bind="book.title"></p>
+            <div class="bookshelf-toolbar">
+                <div class="bookshelf-grid" ng-click="vm.push(book)">
+                    <i class="bookshelf-grid__icon iconfont icon-push"></i>
+                    <p class="bookshelf-grid__label">推送</p>
+                </div>
+                <div class="bookshelf-grid" ng-click="vm.del(_id)">
+                    <i class="bookshelf-grid__icon iconfont icon-del"></i>
+                    <p class="bookshelf-grid__label">删除</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div ng-if="!vm.books" class="bookshelf__empty">
+    <div ng-if="!vm.books" class="novel-main bookshelf__empty">
         <p>你的书架空空如也噻</p>
         <p>快去书城找点吧！</p>
     </div>

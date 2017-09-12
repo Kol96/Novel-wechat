@@ -3,7 +3,7 @@
         .factory('api', api);
 
     function api(){
-        var bookAPI = 'http://121.42.46.187';
+        var bookAPI = 'https://novel.kylen.cc';
         return {
             AUTOCOMPLETE :  bookAPI + '/book/auto-complete',
             FUZZYSEARCH :  bookAPI + '/book/fuzzy-search',

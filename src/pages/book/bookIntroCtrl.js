@@ -26,12 +26,13 @@
                     var bookshelf = angular.fromJson(localStorage.bookshelf);
                     if ( bookshelf[vm.bookId] ) {
                         vm.bookshelfTip = '删除小说';
+                        vm.bookSourceId = bookshelf[vm.bookId].sourceId;
                     }
                 }
             });
             bookService.queryBookSource(vm.bookId).then(function (){
                 vm.bookSource   = bookService.getBookSource();
-                vm.bookSourceId = vm.bookSource[0]._id;
+                vm.bookSourceId = vm.bookSourceId || vm.bookSource[0]._id;
                 _.each(vm.bookSource, function (source){
                     source.label = source.name;
                     source.value = source._id;

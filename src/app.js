@@ -32,5 +32,6 @@ angular.module('novel').run(['$rootScope', '$state', '$stateParams', 'sessionSer
                 $state.go('tabs.book');
             }
         };
+
     }
 ]);
